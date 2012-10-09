@@ -7,7 +7,7 @@ function prompt_char {
     echo '○'
 }
 
-PROMPT='%{$fg[white]%}%n%{$reset_color%}@%{$fg[white]%}%m%{$reset_color%} : %{$fg_bold[white]%}$(collapse_pwd)%{$reset_color%}
+PROMPT='%{$fg_bold[white]%}%n%{$reset_color%}@%{$fg_bold[white]%}%m%{$reset_color%} : %{$fg_bold[white]%}$(collapse_pwd)%{$reset_color%}
 %{$fg_bold[red]%}$(prompt_char) ➜ %{$reset_color%}'
 
 RPROMPT='$(git_prompt_info)%{$reset_color%}'
