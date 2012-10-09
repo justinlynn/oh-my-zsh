@@ -23,4 +23,4 @@ RPROMPT='$(git_prompt_info)%{$reset_color%}'
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}git:%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}%{$fg[blue]%} git-status:%{$fg[red]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fb[blue]%} git-status:%{$fg[green]%}✓%{reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fb[blue]%} git-status:%{$fg[green]%}✓%{$reset_color%}"
