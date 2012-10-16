@@ -10,7 +10,7 @@ function prompt_char {
 PROMPT='%{$fg_bold[white]%}%n%{$reset_color%}@%{$fg_bold[white]%}%m%{$reset_color%} : %{$fg_bold[white]%}$(collapse_pwd)%{$reset_color%}
 %{$fg_bold[red]%}$(prompt_char) ➜ %{$reset_color%}'
 
-RPROMPT='$(git_prompt_info)%{$reset_color%}'
+RPROMPT='$(git_prompt_info) %{$fg[blue]%}$(rvm_prompt_info)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
