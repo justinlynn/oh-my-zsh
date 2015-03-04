@@ -3,6 +3,12 @@ alias g='git'
 compdef g=git
 alias gst='git status'
 compdef _git gst=git-status
+alias gd='git diff'
+compdef _git gd=git-diff
+alias gdc='git diff --cached'
+compdef _git gdc=git-diff
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+compdef _git gdc=git diff-tree --no-commit-id --name-only -r
 alias gl='git pull'
 compdef _git gl=git-pull
 alias gup='git fetch && git rebase'
@@ -11,6 +17,7 @@ alias gp='git push'
 compdef _git gp=git-push
 gdv() { git diff -w "$@" | view - }
 compdef _git gdv=git-diff
+alias gdt='git difftool'
 alias gc='git commit -v'
 compdef _git gc=git-commit
 alias gca='git commit -v -a'
@@ -40,6 +47,7 @@ alias gb='git branch'
 compdef _git gb=git-branch
 alias gba='git branch -a'
 compdef _git gba=git-branch
+alias gbr='git branch --remote'
 alias gcount='git shortlog -sn'
 compdef gcount=git
 alias gcl='git config --list'
@@ -59,6 +67,8 @@ alias gss='git status -s'
 compdef _git gss=git-status
 alias ga='git add'
 compdef _git ga=git-add
+alias gap='git add --patch'
+alias gaa='git add --all'
 alias gm='git merge'
 compdef _git gm=git-merge
 alias grh='git reset HEAD'
@@ -66,12 +76,24 @@ alias grhh='git reset HEAD --hard'
 alias gclean='git reset --hard && git clean -dfx'
 alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
 
+# Sign and verify commits with GPG
+alias gcs='git commit -S'
+compdef _git gcs=git-commit
+alias gsps='git show --pretty=short --show-signature'
+compdef _git gsps=git-show
+
+# Sign and verify tags with GPG
+alias gts='git tag -s'
+compdef _git gts=git-tag
+alias gvt='git verify-tag'
+compdef _git gvt=git verify-tag
+
 #remove the gf alias
 #alias gf='git ls-files | grep'
 
 alias gpoat='git push origin --all && git push origin --tags'
 alias gmt='git mergetool --no-prompt'
-compdef _git gm=git-mergetool
+compdef _git gmt=git-mergetool
 
 alias gg='git gui citool'
 alias gga='git gui citool --amend'
@@ -138,7 +160,7 @@ function work_in_progress() {
   fi
 }
 # these alias commit and uncomit wip branches
-alias gwip='git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m "--wip--"'
+alias gwip='git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit -m "--wip--"'
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 
 # these alias ignore changes to file
@@ -146,6 +168,3 @@ alias gignore='git update-index --assume-unchanged'
 alias gunignore='git update-index --no-assume-unchanged'
 # list temporarily ignored files
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
-
-
-
